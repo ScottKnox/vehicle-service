@@ -14,5 +14,18 @@ Then, navigate to http://localhost:8080/facts
 
 ## Prod
 
+#Building 
+Run the following command to build and run locally:
+
+`mvn package && java -jar target/iq-scroll-0.0.1-SNAPSHOT.jar`
+
+To prepare for new docker image:
+
+`mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)`
+
+When ready for new app version:
+
+`docker build -t 417digital/iq-scroll-backend:latest .`
+
 ## Endpoints 
 `/facts` - Returns a list of facts
