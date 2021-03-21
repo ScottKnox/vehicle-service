@@ -52,7 +52,7 @@ public class FactRepositoryTest {
 
     @Test
     public void canConnect() {
-        Fact productInfo = new Fact("1", "img", "text");
+        Fact productInfo = new Fact();
         repository.save(productInfo);
         List<Fact> result = (List<Fact>) repository.findAll();
     }

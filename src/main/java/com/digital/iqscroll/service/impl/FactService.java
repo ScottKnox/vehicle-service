@@ -30,7 +30,9 @@ public class FactService implements IFactService {
 
     @Override
     public Fact createFact(Fact fact) {
-        Fact createdFact = new Fact(fact.getFactId(), fact.getFactImageUrl(), fact.getFactBodyText());
+        Fact createdFact = new Fact();
+        createdFact.setFactBodyText(fact.getFactBodyText());
+        createdFact.setFactImageUrl(fact.getFactImageUrl());
         factRepository.save(fact);
 
         return createdFact;

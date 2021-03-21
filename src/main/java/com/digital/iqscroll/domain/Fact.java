@@ -11,10 +11,7 @@ public class Fact {
     private String factImageUrl;
     private String factBodyText;
 
-    public Fact(String factId, String factImageUrl, String factBodyText) {
-        this.factId = factId;
-        this.factImageUrl = factImageUrl;
-        this.factBodyText = factBodyText;
+    public Fact() {
     }
 
     @DynamoDBHashKey
