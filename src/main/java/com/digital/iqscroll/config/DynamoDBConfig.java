@@ -2,6 +2,7 @@ package com.digital.iqscroll.config;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
@@ -26,8 +27,13 @@ public class DynamoDBConfig {
 
     @Bean
     public AmazonDynamoDB amazonDynamoDB() {
-        AmazonDynamoDB amazonDynamoDB
-                = new AmazonDynamoDBClient(amazonAWSCredentials());
+        AmazonDynamoDB amazonDynamoDB;
+        if (!StringUtils.isEmpty(amazonAWSAccessKey) && !StringUtils.isEmpty(amazonAWSSecretKey)) {
+            amazonDynamoDB = new AmazonDynamoDBClient(amazonAWSCredentials()).withRegion(Regions.US_EAST_2);
+        } else {
+            amazonDynamoDB = new AmazonDynamoDBClient().withRegion(Regions.US_EAST_2);
+        }
+
 
         if (!StringUtils.isEmpty(amazonDynamoDBEndpoint)) {
             amazonDynamoDB.setEndpoint(amazonDynamoDBEndpoint);

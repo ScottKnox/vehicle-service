@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  # ---
+  # DynamoDB Table definitions
+  # ---
+  DDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "Fact"
+      AttributeDefinitions:
+        -
+          AttributeName: "id"
+          AttributeType: "S"
+        -
+          AttributeName: "imageUrl"
+          AttributeType: "S"
+      KeySchema:
+        -
+          AttributeName: "id"
+          KeyType: "HASH"
+        -
+          AttributeName: "imageUrl"
+          KeyType: "RANGE"
+      ProvisionedThroughput:
+        ReadCapacityUnits: 10
+        WriteCapacityUnits: 5
