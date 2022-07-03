@@ -6,7 +6,7 @@ Resources:
   DDBTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: "Fact"
+      TableName: "Vehicle"
       AttributeDefinitions:
         -
           AttributeName: "id"

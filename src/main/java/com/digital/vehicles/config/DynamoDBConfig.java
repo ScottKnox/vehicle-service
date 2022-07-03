@@ -1,4 +1,4 @@
-package com.digital.iqscroll.config;
+package com.digital.vehicles.config;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -13,7 +13,7 @@ import org.springframework.util.StringUtils;
 
 @Configuration
 @EnableDynamoDBRepositories
-        (basePackages = "com.digital.iqscroll.datalayer")
+        (basePackages = "com.digital.vehicles.datalayer")
 public class DynamoDBConfig {
 
     @Value("${amazon.dynamodb.endpoint}")

@@ -9,9 +9,9 @@ services:
     volumes:
       - "./docker/dynamodb:/home/dynamodblocal/data"
     working_dir: /home/dynamodblocal
-  iq-scroll-backend:
-    image: 417digital/iq-scroll-backend
-    container_name: iq-scroll-backend
+  vehicle-service:
+    image: 417digital/vehicle-service
+    container_name: vehicle-service
     ports:
       - "8080:8080"
     depends_on:

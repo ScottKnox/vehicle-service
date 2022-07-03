@@ -37,7 +37,7 @@ Resources:
       Cluster: !Ref 'ECSCluster'
       DesiredCount: '1'
       LoadBalancers:
-        - ContainerName: iq-scroll-backend
+        - ContainerName: vehicle-service
           ContainerPort: '8080'
           TargetGroupArn: !Ref 'ECSTG'
       Role: !Ref 'ECSServiceRole'
@@ -45,19 +45,19 @@ Resources:
   taskdefinition:
     Type: AWS::ECS::TaskDefinition
     Properties:
-      Family: !Join ['', [!Ref 'AWS::StackName', -iq-scroll-backend]]
+      Family: !Join ['', [!Ref 'AWS::StackName', -vehicle-service]]
       ContainerDefinitions:
-        - Name: iq-scroll-backend
+        - Name: vehicle-service
           Cpu: '10'
           Essential: 'true'
-          Image: 043386788099.dkr.ecr.us-east-2.amazonaws.com/iqscroll/iqscroll-backend
+          Image: 043386788099.dkr.ecr.us-east-2.amazonaws.com/vehicles/vehicles-backend
           Memory: '300'
           LogConfiguration:
             LogDriver: awslogs
             Options:
               awslogs-group: !Ref 'CloudwatchLogsGroup'
               awslogs-region: !Ref 'AWS::Region'
-              awslogs-stream-prefix: iq-scroll-backend
+              awslogs-stream-prefix: vehicle-service
           PortMappings:
             - ContainerPort: 8080
   EcsSecurityGroup:
@@ -135,7 +135,7 @@ Resources:
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 30
       HealthyThresholdCount: 2
-      Name: iq-scroll-target-group
+      Name: vehicle-service-target-group
       Port: 8080
       Protocol: HTTP
       UnhealthyThresholdCount: 2
@@ -247,7 +247,7 @@ Resources:
                          'dynamodb:Get*', 'dynamodb:Query', 'dynamodb:Scan', 'dynamodb:BatchWrite*',
                          'dynamodb:CreateTable', 'dynamodb:Delete*', 'dynamodb:Update*',
                          'dynamodb:PutItem']
-                Resource: 'arn:aws:dynamodb:*:*:table/Fact'
+                Resource: 'arn:aws:dynamodb:*:*:table/Vehicle'
   AutoscalingRole:
     Type: AWS::IAM::Role
     Properties:

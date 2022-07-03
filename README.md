@@ -1,12 +1,12 @@
-# IQ Scroll Backend
-This backend provides the IQ Scroll mobile app lists of facts to display to users.
+# Vehicle Service
+Vehicle Service provides vehicle data to our various front end applications, and shared services. 
 
 ## Running Locally
-In the iq-scroll-backend directory, simply run:
+In the vehicle-service directory, simply run:
 
 `docker-compose up`
 
-Then, navigate to http://localhost:8080/facts
+Then, navigate to http://localhost:8080/vehicles
 
 ## Running Test Suites
 
@@ -17,7 +17,7 @@ Then, navigate to http://localhost:8080/facts
 #Building 
 Run the following command to build and run locally:
 
-`mvn package && java -jar target/iq-scroll-0.0.1-SNAPSHOT.jar`
+`mvn package && java -jar target/vehicle-service-0.0.1-SNAPSHOT.jar`
 
 To prepare for new docker image:
 
@@ -25,7 +25,7 @@ To prepare for new docker image:
 
 When ready for new app version:
 
-`docker build -t 417digital/iq-scroll-backend:latest .`
+`docker build -t 417digital/vehicle-service:latest .`
 
 ## Endpoints 
-`/facts` - Returns a list of facts
+`/vehicles` - Returns a list of vehicles

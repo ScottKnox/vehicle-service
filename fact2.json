@@ -1,5 +1,5 @@
 {
   "id": {"S": "2"},
-  "imageUrl": {"S": "https://iq-scroll.s3.us-east-2.amazonaws.com/images/girafee.jpg"},
-  "bodyText": {"S": "Due to the fact Giraffes tongues are out so frequently, grazing on vegetation, they have evolved a blueish/black colour, ensuring they don’t burn under the African sun!"}
+  "imageUrl": {"S": "https://vehicle-service.s3.us-east-2.amazonaws.com/images/maybach-444.jpg"},
+  "description": {"S": "2017 Maybach in Pristine condition!"}
 }

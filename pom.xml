@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.417digital</groupId>
-	<artifactId>iq-scroll</artifactId>
+	<artifactId>vehicles</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>iq-scroll</name>
-	<description>REST API for iq-scroll App</description>
+	<name>vehicles</name>
+	<description>Vehicle Service</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
