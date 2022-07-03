@@ -1,7 +1,8 @@
 package com.digital.vehicles.service.impl;
 
+import com.amazonaws.util.StringUtils;
 import com.digital.vehicles.domain.Vehicle;
-import com.digital.vehicles.datalayer.VehicleRepository;
+import com.digital.vehicles.datalayer.IVehicleRepository;
 import com.digital.vehicles.service.IVehicleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,14 +17,20 @@ public class VehicleService implements IVehicleService {
     Logger logger = LoggerFactory.getLogger(VehicleService.class);
 
     @Autowired
-    private VehicleRepository vehicleRepository;
+    private IVehicleRepository IVehicleRepository;
 
     @Override
     public List<Vehicle> getVehicles() {
         List<Vehicle> vehicles = new ArrayList<>();
 
-        Iterable<Vehicle> dbFacts = vehicleRepository.findAll();
-        dbFacts.forEach(vehicles::add);
+        Iterable<Vehicle> dbVehicles = IVehicleRepository.findAll();
+
+        for (Vehicle dbVehicle : dbVehicles) {
+            // Boss' orders! Only return vehicles that have a photo.
+            if (!StringUtils.isNullOrEmpty(dbVehicle.getImageUrl())) {
+                vehicles.add(dbVehicle);
+            }
+        }
 
         return vehicles;
     }

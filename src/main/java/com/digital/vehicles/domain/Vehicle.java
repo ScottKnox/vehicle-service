@@ -8,6 +8,21 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 @DynamoDBTable(tableName = "Vehicle")
 public class Vehicle {
     private String id;
+
+    private int year;
+
+    private String brand;
+
+    private String model;
+
+    private String type;
+
+    private int mileage;
+
+    private double price;
+
+    private String color;
+
     private String imageUrl;
     private String description;
 
@@ -20,25 +35,89 @@ public class Vehicle {
         return this.id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @DynamoDBAttribute
     public String getImageUrl() {
         return this.imageUrl;
-    }
-
-    @DynamoDBAttribute
-    public String getBodyText() {
-        return this.description;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
-    public void setBodyText(String description) {
+    @DynamoDBAttribute
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
         this.description = description;
+    }
+
+    @DynamoDBAttribute
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    @DynamoDBAttribute
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    @DynamoDBAttribute
+    public String getModel() {
+        return model;
+    }
+
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    @DynamoDBAttribute
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @DynamoDBAttribute
+    public int getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
+    }
+
+    @DynamoDBAttribute
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @DynamoDBAttribute
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
