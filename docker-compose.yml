@@ -9,16 +9,16 @@ services:
     volumes:
       - "./docker/dynamodb:/home/dynamodblocal/data"
     working_dir: /home/dynamodblocal
-  vehicle-service:
-    image: 417digital/vehicle-service
-    container_name: vehicle-service
-    ports:
-      - "8080:8080"
-    depends_on:
-      - "dynamodb-local"
-    links:
-      - "dynamodb-local"
-    environment:
-      AWS_ACCESS_KEY_ID: 'DUMMYIDEXAMPLE'
-      AWS_SECRET_ACCESS_KEY: 'DUMMYEXAMPLEKEY'
-      REGION: 'us-west-2'
+#  vehicle-service:
+#    image: 417digital/vehicle-service
+#    container_name: vehicle-service
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - "dynamodb-local"
+#    links:
+#      - "dynamodb-local"
+#    environment:
+#      AWS_ACCESS_KEY_ID: 'DUMMYIDEXAMPLE'
+#      AWS_SECRET_ACCESS_KEY: 'DUMMYEXAMPLEKEY'
+#      REGION: 'us-west-2'

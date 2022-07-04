@@ -1,5 +1,0 @@
-{
-  "id": {"S": "2"},
-  "imageUrl": {"S": "https://vehicle-service.s3.us-east-2.amazonaws.com/images/maybach-444.jpg"},
-  "description": {"S": "2017 Maybach in Pristine condition!"}
-}

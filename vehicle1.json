@@ -1,0 +1,12 @@
+{
+  "id": {"S": "2e83b321-221d-483f-804b-0164ebc7949f"},
+  "year": {"N": "2015"},
+  "brand": {"S": "Dodge"},
+  "model": {"S": "Charger"},
+  "type": {"S": "Sedan"},
+  "mileage": {"N": "121000"},
+  "price": {"N": "17000"},
+  "color": {"S": "Red"},
+  "imageUrl": {"S": "https://vehicle-service.s3.us-east-2.amazonaws.com/images/charger-123.jpg"},
+  "description": {"S": "This Charger is in immaculate condition and looks like new!"}
+}

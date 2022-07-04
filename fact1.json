@@ -1,5 +1,0 @@
-{
-  "id": {"S": "1"},
-  "imageUrl": {"S": "https://vehicle-service.s3.us-east-2.amazonaws.com/images/charger-123.jpg"},
-  "description": {"S": "2021 Dodge Charger with 121,000 miles."}
-}

@@ -1,0 +1,12 @@
+{
+  "id": {"S": "ad33c222-221d-483f-804b-0164ebc7949f"},
+  "year": {"N": "2007"},
+  "brand": {"S": "Chevy"},
+  "model": {"S": "Camaro"},
+  "type": {"S": "Sedan"},
+  "mileage": {"N": "97000"},
+  "price": {"N": "14000"},
+  "color": {"S": "Black"},
+  "imageUrl": {"S": "https://vehicle-service.s3.us-east-2.amazonaws.com/images/camaro-222.jpg"},
+  "description": {"S": "Needs some interior TLC, but is mechanically incredible."}
+}
