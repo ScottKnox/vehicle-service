@@ -26,8 +26,9 @@ public class VehicleService implements IVehicleService {
         Iterable<Vehicle> dbVehicles = VehicleRepository.findAll();
 
         for (Vehicle dbVehicle : dbVehicles) {
-            // Boss' orders! Only return vehicles that have a photo.
-            if (!StringUtils.isNullOrEmpty(dbVehicle.getImageUrl())) {
+            // Boss' orders! Only return vehicles that have a photo, and are not a Lexus.
+            if (!StringUtils.isNullOrEmpty(dbVehicle.getImageUrl())
+                    && !dbVehicle.getBrand().equalsIgnoreCase("Lexus")) {
                 vehicles.add(dbVehicle);
             }
         }
