@@ -1,4 +1,4 @@
-package com.digital.vehicles.datalayer;
+package com.digital.vehicles.datalayer.impl;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
@@ -17,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -44,35 +45,10 @@ public class VehicleRepositoryTest {
         try {
             amazonDynamoDB.createTable(tableRequest);
         } catch (Exception ignored) { }
-
-
-        dynamoDBMapper.batchDelete(repository.findAll());
     }
 
     @Test
-    public void vehicleRepository_SuccessfullySaveValidVehicle_FindsValidVehicle() {
-        Vehicle vehicle = new Vehicle();
-        vehicle.setImageUrl("https://imageurl.com");
-        vehicle.setYear(2018);
-        vehicle.setBrand("Dodge");
-        vehicle.setModel("Challenger");
-        vehicle.setColor("Red");
-        vehicle.setDescription("A very fast, cool car.");
-        vehicle.setPrice(25000.00);
-
-        repository.save(vehicle);
-
-        List<Vehicle> result = (List<Vehicle>) repository.findAll();
-
-        Assert.assertEquals(1, result.size());
-        Vehicle dbVehicle = result.get(0);
-
-        Assert.assertEquals(2018, dbVehicle.getYear());
-        Assert.assertEquals("Dodge", dbVehicle.getBrand());
-        Assert.assertEquals("Challenger", dbVehicle.getModel());
-        Assert.assertEquals("https://imageurl.com", dbVehicle.getImageUrl());
-        Assert.assertEquals("Red", dbVehicle.getColor());
-        Assert.assertEquals("A very fast, cool car.", dbVehicle.getDescription());
-        Assert.assertEquals(25000.00, dbVehicle.getPrice(), 0.01);
+    public void vehicleRepository_SomeVehiclesWithImageAndNotLexus_ReturnsAppropriateVehicles() {
+ 
     }
 }

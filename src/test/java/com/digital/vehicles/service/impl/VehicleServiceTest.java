@@ -1,6 +1,6 @@
 package com.digital.vehicles.service.impl;
 
-import com.digital.vehicles.datalayer.VehicleRepository;
+import com.digital.vehicles.datalayer.IVehicleRepository;
 import com.digital.vehicles.domain.Vehicle;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,18 +15,18 @@ import static org.mockito.Mockito.when;
 
 public class VehicleServiceTest {
 
-    VehicleRepository repository;
+    IVehicleRepository repository;
 
     VehicleService vehicleService;
 
     @Before
     public void setup() {
         // Let's create a mock repository class that our service will use.
-        repository = Mockito.mock(VehicleRepository.class);
+        repository = Mockito.mock(IVehicleRepository.class);
         vehicleService = new VehicleService();
 
         // We use this to set our class under test's repository to our Mock.
-        ReflectionTestUtils.setField(vehicleService, "VehicleRepository", repository);
+        ReflectionTestUtils.setField(vehicleService, "IVehicleRepository", repository);
     }
 
     @Test
