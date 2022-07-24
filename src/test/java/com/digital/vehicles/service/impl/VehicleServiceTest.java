@@ -55,31 +55,4 @@ public class VehicleServiceTest {
         Assert.assertEquals(1, vehicles.size());
         Assert.assertNotNull(vehicles.get(0).getImageUrl());
     }
-
-    @Test
-    public void getVehicles_IncludingLexusBrand_ReturnsNoLexus() {
-        List<Vehicle> dbVehicles = new ArrayList<>();
-        Vehicle vehicle1 = new Vehicle();
-        vehicle1.setId("dbb0c2c3-997c-465b-bb06-b2efb7dad2f7");
-        vehicle1.setBrand("Dodge");
-        vehicle1.setModel("Charger");
-        vehicle1.setImageUrl("https://images.com/dodge-charger.jpg");
-
-        Vehicle vehicle2 = new Vehicle();
-        vehicle2.setId("acc0c2c3-997c-465b-bb06-b2efb7dad2f7");
-        vehicle2.setBrand("Lexus");
-        vehicle2.setModel("IS-250");
-        vehicle2.setImageUrl("https://images.com/lexus-250.jpg");
-
-        dbVehicles.add(vehicle1);
-        dbVehicles.add(vehicle2);
-
-        when(repository.findAll()).thenReturn(dbVehicles);
-
-        List<Vehicle> vehicles = vehicleService.getVehicles();
-
-        // Only the Dodge should be returned
-        Assert.assertEquals(1, vehicles.size());
-        Assert.assertEquals("Dodge", vehicles.get(0).getBrand());
-    }
 }
